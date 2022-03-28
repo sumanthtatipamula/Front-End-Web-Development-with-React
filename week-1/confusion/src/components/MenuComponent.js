@@ -1,4 +1,5 @@
 import React from 'react';
+import DishDetail from './DishDetail';
 import {
 	Media,
 	Card,
@@ -49,7 +50,7 @@ class MenuComponent extends React.Component {
 		return (
 			<div className='container'>
 				<div className='row'>{menu}</div>
-				<div className='row'>{this.renderDish(this.state.selectedDish)}</div>
+				<DishDetail dish={this.state.selectedDish} />
 			</div>
 		);
 	}
