@@ -1,5 +1,7 @@
 ## Component Types
 
+---
+
 - Presentation vs container
 - skinny vs fat
 - dumb vs smart
@@ -7,12 +9,16 @@
 
 ### Presentational Components
 
+---
+
 - Mainly Concerned with rendering the view
 - Render the view based on the data that is passed to them in props
 - Do not maintain their own local state
   - Can be relaxed to maintain only UI state than data.
 
 ### Container Components
+
+---
 
 - Responsible for making things work
   - Data fetching, state updates.
@@ -22,6 +28,8 @@
 - Maintain state and communicate with data sources.
 
 ## Updating LifeCycle methods.
+
+---
 
 - Called when a component is being re-rendered
   - Can be caused be changes to props or state.
@@ -33,6 +41,8 @@
 
 ## React Virtual DOM
 
+---
+
 - React uses a virtual DOM
   - A light weight representation of the browser DOM
   - in memory tree data structure of plains JS objects
@@ -41,6 +51,8 @@
 
 ## Updating DOM.
 
+---
+
 - Diffing algorithm will detect those nodes that are changes.
   - Updates the entire subtree if diffing detects that two elements are of different types.
   - Using key you can hint child elements are stable.
@@ -48,6 +60,8 @@
 - React Fiber : new reconciliation algorithm in React 16
 
 ## React Router
+
+---
 
 - Collection of navigational components
   - Enables navigation among views
@@ -81,3 +95,23 @@
 - Maintain History( What will be done when user clicks on back button)
 - How do you support analytics.
 - Speeding up the initial page load
+
+## React Router
+
+---
+
+- Paths specified as a URL
+- Path can also carry parameter values:
+  - eg: /menu/42
+- Route parameters specified in the path specification as a token
+  - eg: path 'menu/:id' where id is the token
+
+### Route Parameters
+
+- Route parameters can be specified using a link parameter
+  - <Link to{`/menu/${dish.id}`}>
+- Route passes three props to the component:
+  - match,location,history
+- match object:
+  - match object provides information about how a <Route path> matched the URL
+  - eg: /menu/42 specified as /menu/:id then match.params.id = 42
