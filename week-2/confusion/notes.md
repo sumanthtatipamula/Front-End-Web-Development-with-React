@@ -20,3 +20,13 @@
   - can wrap presentational components in wrapping divs
 - Provide data to presentational components
 - Maintain state and communicate with data sources.
+
+## Updating LifeCycle methods.
+
+- Called when a component is being re-rendered
+  - Can be caused be changes to props or state.
+  - getDerivedStateFromProps()
+  - shouldComponentUpdate() -- return boolean variable.
+  - render()
+  - getSnapshotBeforeUpdate()
+  - componentDidUpdate() -- invoked when component is updated.
