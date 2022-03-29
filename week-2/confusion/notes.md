@@ -45,5 +45,21 @@
   - Updates the entire subtree if diffing detects that two elements are of different types.
   - Using key you can hint child elements are stable.
     - No need to re-render where keys do not change.
-- React Fiber : new reconcilaion algorithm in React 16
-  - Incremental rendering.
+- React Fiber : new reconciliation algorithm in React 16
+
+## React Router
+
+- Collection of navigational components
+  - Enables navigation among views
+  - Router components, route matching components and navigation components.
+  - Uses a browser-based bookmarkable URLs as an instruction to navigate to a client-generated view in your web app.
+    - can also pass along optional parameters.
+- Install react-router-dom.
+- eg: BrowserRouter
+  - creates specialized history object
+  - <HashRouter> if you are using a static file server
+  - Enclose your app in BrowserRouter
+- Route matching components : <Route> and <Switch>
+  - <Switch> enables grouping together several routes.
+  - <Redirect> enables te default route specification
+- Navigation is supported through the <Link> and <NavLink> components.
