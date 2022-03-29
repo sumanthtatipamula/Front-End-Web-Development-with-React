@@ -63,3 +63,21 @@
   - <Switch> enables grouping together several routes.
   - <Redirect> enables te default route specification
 - Navigation is supported through the <Link> and <NavLink> components.
+
+## SPA(Single Page Applications)
+
+---
+
+- Browser --> Request Web Application --> Server --> Send Web app and Assets --> User clicks on link, new Request --> Server --> Response with JSON data.
+- No need to reload the entire page.
+- UX like a desktop/native application
+- Most resources are retrieved with a single page load
+- Redraw parts of the page when needed without requiring a full sever round trip.
+
+### Challenges
+
+- Not optimized for Search engine optimization.
+- Partitioning the responsibility between client and server.
+- Maintain History( What will be done when user clicks on back button)
+- How do you support analytics.
+- Speeding up the initial page load
