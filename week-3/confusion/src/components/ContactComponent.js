@@ -48,6 +48,7 @@ class Contact extends Component {
 		alert('Current State is :' + JSON.stringify(this.state));
 		event.preventDefault();
 	}
+	// onBlur allows only one argument that is event but to pass argument then we need to use this syntax
 	handleBlur = (field) => (event) => {
 		this.setState({
 			touched: { ...this.state.touched, [field]: true },
