@@ -105,3 +105,10 @@
     - Subscribe your app root with <Provider>
       - Takes the store as an attribute
       - makes store accessible to all connected components.
+- React-Redux-Form
+  - A versatile, fast and intuitive library for creating complex and performant forms in react and redux.
+  - Form data stored in redux store in a model.
+  - Validations support for form
+- Local Form
+  - Maps form model to local state of the component
+  - Suitable when you don't need form data persistence across component mounting.unmounting.
