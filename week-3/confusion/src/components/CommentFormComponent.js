@@ -21,7 +21,7 @@ class CommentForm extends React.Component {
 		this.setState({ isModalOpen: !this.state.isModalOpen });
 	}
 	formSubmitHandler(values) {
-		console.log('reached');
+		this.toggleModal();
 		alert('Current State is: ' + JSON.stringify(values));
 	}
 	render() {
