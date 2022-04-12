@@ -7,6 +7,12 @@ const INITIAL_STATE = {
 export const Dishes = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case ActionTypes.ADD_DISHES:
+			return {
+				...state,
+				isLoading: false,
+				errorMessage: null,
+				dishes: action.payload,
+			};
 		case ActionTypes.DISHES_LOADING:
 			return { ...state, isLoading: true, errorMessage: null, dishes: [] };
 		case ActionTypes.DISHES_FAILED:

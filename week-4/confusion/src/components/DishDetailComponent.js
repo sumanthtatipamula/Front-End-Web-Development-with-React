@@ -7,7 +7,7 @@ import {
 	Breadcrumb,
 	BreadcrumbItem,
 } from 'reactstrap';
-
+import { LoadingComponent } from './LoadingComponent';
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentFormComponent';
 
@@ -52,6 +52,23 @@ function RenderComments({ comments, addComment, dishId }) {
 }
 
 const DishDetail = (props) => {
+	if (props.isLoading) {
+		return (
+			<div className='container'>
+				<div className='row'>
+					<LoadingComponent />
+				</div>
+			</div>
+		);
+	} else if (props.errMess) {
+		return (
+			<div className='container'>
+				<div className='row'>
+					<h4>{props.errMess}</h4>
+				</div>
+			</div>
+		);
+	}
 	if (props.dish == null) return <div></div>;
 	return (
 		<div className='container'>
