@@ -114,3 +114,78 @@
   - json-server --watch db.json -d 2000 -p 3001
   - here d means delay in sending data from json server
   - p mean to port server should listen to
+
+## Promises
+
+- Promise is a mechanism that supports asynchronous computation
+- Proxy for a value not necessarily known when the promise is created.
+- Promise when created it is in pending state,when promise is resolved or rejected it is in resolved or rejected state.
+- When promised is delivered is there ia function to which resolve and reject are passed.
+
+```javascript
+return new Promise(function (resolve, reject) {
+	if (successful) {
+		resolve(value); // then(function(result))
+	} else {
+		reject(error); // catch
+	}
+});
+```
+
+### Why Promises
+
+- Solves the callback hell(heavily nested callback code) problem
+- promises can be chained.
+- Can immediately return:
+  - Promise.resolve(result)
+  - Promise.reject(error)
+
+## Fetch
+
+---
+
+- XMLHttpRequest is quite cumbersome and outdated.
+  - Has been made palatable by wrapping it appropriately in most JS libraries like jquery.
+- Fetch API is a promise-based interface for making HTTP requests.
+
+### Fetch Abbreviations
+
+- Request
+- Response
+- Headers
+- Body
+
+### Usage
+
+- fetch(baseUrl + 'dishes')
+
+  - baseUrl is the base url of the server
+  - dishes is the url of the resource
+  - returns a promise
+
+- fetch(baseUrl + 'dishes',{method: 'POST', body: JSON.stringify(dish), headers: {'Content-Type': 'application/json'},credentials: 'same-origin'})
+
+  - method: POST
+  - body: JSON.stringify(dish)
+  - headers: {'Content-Type': 'application/json'}
+  - returns a promise
+
+- Fetch Dealing with Errors
+
+```javascript
+fetch(baseUrl + 'dishes')
+	.then(
+		(response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				return Promise.reject(new Error(response.statusText));
+			}
+		},
+		(error) => {
+			return Promise.reject(new Error(error.message));
+		}
+	)
+	.then((dishes) => dispatch(addDishes(dishes)))
+	.catch((error) => dispatch(fetchDishesFailed(error)));
+```
