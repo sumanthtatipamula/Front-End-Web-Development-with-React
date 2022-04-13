@@ -70,3 +70,47 @@
 - Redux Saga : Uses Es6 generators to control pauseable functions
   - complex async logic
   - Ongoing "background thread" like processing behavior
+
+## Web Services
+
+- A system designed to support interoperability of systems connect across
+  - Service oriented architecture.
+- Two common approaches used in practice:
+  - Soap
+  - Rest
+
+### Rest
+
+- A style of software architecture for distributed hypermedia systems such as the world wide web.
+- Introduced in 1995 by Tim Berners-Lee.
+- Four Basic principles
+  - Use http methods explicitly
+  - Expose directory structure like URIs
+  - Stateless
+- Rest Concepts :
+  - Nouns: represent resources (unconstrained)
+    - Represented with a global identifier
+    - Rest uses URIs to identify resources
+    - Directory structure to identify resources.
+  - Verbs: GET,PUT,POST(CONSTRAINED)
+    - GET - READ
+    - POST - CREATE
+    - PUT - UPDATE
+    - DELETE - DELETE
+  - Representations: XML,JSON(constrained)
+
+### Stateless Server
+
+- Server side should not track the client state:
+  - Every request is a new request from the client.
+- Client side should track its own state:
+  - Eg: Using cookies
+  - client-side MVC setup
+
+## JSON Server
+
+- commands :
+  - npm install -g json-server
+  - json-server --watch db.json -d 2000 -p 3001
+  - here d means delay in sending data from json server
+  - p mean to port server should listen to
