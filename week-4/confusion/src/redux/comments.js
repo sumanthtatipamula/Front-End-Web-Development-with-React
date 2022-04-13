@@ -18,8 +18,8 @@ export const Comments = (
 			};
 		case ActionTypes.ADD_COMMENT:
 			var comment = action.payload;
-			comment.id = state.comments.length;
-			comment.date = new Date().toISOString();
+			// comment.id = state.comments.length;
+			// comment.date = new Date().toISOString();
 			//state.concat(comment)
 			return { ...state, comments: state.comments.concat(comment) };
 

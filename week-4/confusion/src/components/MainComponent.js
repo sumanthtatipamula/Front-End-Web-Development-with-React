@@ -12,6 +12,7 @@ import {
 	fetchDishes,
 	fetchComments,
 	fetchPromos,
+	postComment,
 } from '../redux/ActionCreators';
 import About from './AboutComponent';
 import { actions } from 'react-redux-form';
@@ -31,6 +32,8 @@ const mapDispatchToProps = (dispatch) => ({
 	resetFeedbackForm: () => dispatch(actions.reset('feedback')),
 	fetchComments: () => dispatch(fetchComments()),
 	fetchPromos: () => dispatch(fetchPromos()),
+	postComment: (dishId, rating, author, comment) =>
+		dispatch(postComment(dishId, rating, author, comment)),
 });
 class Main extends Component {
 	constructor(props) {
@@ -75,7 +78,7 @@ class Main extends Component {
 						return comment.dishId === parseInt(match.params.id, 10);
 					})}
 					commentsErrMess={this.props.comments.errorMessage}
-					addComment={this.props.addComment}></DishDetail>
+					postComment={this.props.postComment}></DishDetail>
 			);
 		};
 		return (
