@@ -13,6 +13,8 @@ import {
 	fetchComments,
 	fetchPromos,
 	postComment,
+	fetchLeaders,
+	postFeedback,
 } from '../redux/ActionCreators';
 import About from './AboutComponent';
 import { actions } from 'react-redux-form';
@@ -35,6 +37,27 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchPromos: () => dispatch(fetchPromos()),
 	postComment: (dishId, rating, author, comment) =>
 		dispatch(postComment(dishId, rating, author, comment)),
+	fetchLeaders: () => dispatch(fetchLeaders()),
+	postFeedback: (
+		firstname,
+		lastname,
+		telnum,
+		email,
+		agree,
+		contactType,
+		message
+	) =>
+		dispatch(
+			postFeedback(
+				firstname,
+				lastname,
+				telnum,
+				email,
+				agree,
+				contactType,
+				message
+			)
+		),
 });
 class Main extends Component {
 	constructor(props) {
@@ -45,6 +68,7 @@ class Main extends Component {
 		this.props.fetchDishes();
 		this.props.fetchComments();
 		this.props.fetchPromos();
+		this.props.fetchLeaders();
 	}
 	render() {
 		const HomePage = () => {
@@ -60,8 +84,10 @@ class Main extends Component {
 					}
 					promosLoading={this.props.promotions.isLoading}
 					promosErrMess={this.props.promotions.errorMessage}
+					leadersLoading={this.props.leaders.isLoading}
+					leadersErrMess={this.props.leaders.errorMessage}
 					leader={
-						this.props.leaders.filter((leader) => leader.featured)[0]
+						this.props.leaders.leaders.filter((leader) => leader.featured)[0]
 					}></Home>
 			);
 		};
@@ -95,7 +121,13 @@ class Main extends Component {
 							<Route
 								path='/aboutus'
 								component={() => {
-									return <About leaders={this.props.leaders} />;
+									return (
+										<About
+											leaders={this.props.leaders}
+											leadersLoading={this.props.leaders.isLoading}
+											leadersErrMess={this.props.leaders.errorMessage}
+										/>
+									);
 								}}
 							/>
 							<Route
@@ -110,7 +142,10 @@ class Main extends Component {
 								exact
 								path='/contactus'
 								component={() => (
-									<Contact resetFeedbackForm={this.props.resetFeedbackForm} />
+									<Contact
+										postFeedback={this.props.postFeedback}
+										resetFeedbackForm={this.props.resetFeedbackForm}
+									/>
 								)}
 							/>
 							<Redirect to='/home' />
