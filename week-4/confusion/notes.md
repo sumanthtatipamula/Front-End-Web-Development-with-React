@@ -189,3 +189,37 @@ fetch(baseUrl + 'dishes')
 	.then((dishes) => dispatch(addDishes(dishes)))
 	.catch((error) => dispatch(fetchDishesFailed(error)));
 ```
+
+## React Animations
+
+---
+
+Animations in React can be supported through several React animation libraries.
+
+- React-transition-group
+- React-animation-components
+
+### React-transition-group
+
+- A set of components for managing component states(including mounting and unmounting) over time,
+- Components supported:
+  - Transition
+  - CSSTransition
+  - TransitionGroup
+- Transition: lets you describe a transition from one component state to another over time
+  - entering,entered,exiting,exited
+- used for animate the mounting and unmounting of a component
+- The 'in prop' us used to toggle the transition state,
+  - when true the component begins the sequence of entering -> entered.
+  - Timeout specifies the duration spent in entering state.
+
+### React Animation Components
+
+- Animation components
+  - Fade
+  - Transform
+  - FadeTransform
+- Wrapper Components
+  - Stagger
+  - Random
+  - Loop
